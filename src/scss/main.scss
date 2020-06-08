@@ -1,0 +1,371 @@
+/*------------------------------------------------------------------
+[Master Stylesheet]
+
+Project:        Personal Site
+Author:         Cecilia C Constantine
+Primary use:    Educational 
+-------------------------------------------------------------------*/
+
+@import url('https://fonts.googleapis.com/css?family=Roboto:300|Satisfy|Open+Sans+Condensed:700');
+@import "colors";
+@import "functions";
+@import "maps";
+@import "animations";
+@import "placeholder-mixins";
+
+
+
+/************************* Contents **************************
+*********** Elements
+*********** classes
+*********** IDs
+*********** Media queries
+***********************************************************/
+
+
+
+/************************* ELEMENTS **************************/
+html { font-size: 16px; }
+
+a {
+  color: $blue;
+
+  &:hover,
+  &:active {
+    color: $pink;
+    text-decoration: none;
+  }
+}
+
+body {
+  font: {
+    family: text(normal);
+  }
+  line-height: 2;
+  overflow-x: hidden;
+  background: #fff;
+}
+
+form {
+  margin: 0 auto;
+  font-weight: text(heavy);
+  font-size: text(small);
+  input,
+  textarea {
+    background: transparent;
+    display: block;
+    padding: 3%;
+    margin: 25px auto;
+    box-sizing: border-box;
+    line-height: 1.5;
+    border: 2px solid $dark-teal;
+    border-radius: 15px;
+    outline: none;
+  }
+  input,
+  textarea,
+  button {
+    min-width: 300px;
+  }
+
+  .form-btn {
+    border: 2px solid $pink;
+    background: transparent;
+    color: $white;
+    line-height: 2;
+    margin-bottom: 25px;    
+  }
+
+    .form-btn:hover,
+    .form-btn:focus {
+      background: $pink;
+      color: $white;
+      box-shadow: none;
+      border-color: transparent;
+      outline: none;
+    }  
+    
+  .form-gotcha  {
+    display: none;
+  }
+  
+  }
+  
+footer {
+  position: absolute;
+  bottom: 0;
+  margin: 0;
+  padding: 0;
+  font-size: text(xsmall);
+
+  .heart-icon {
+    color: $red;
+  }
+}
+
+h1 { 
+  font-size: text(xlarge);
+  font-family: text(cursive);
+}
+
+h2, h3, h4, h5 {
+  font-family: text(block);
+  text-transform: text(caps);
+  font-weight: text(heavy);
+  @extend %center;
+}
+
+h2 { top: 3%; }
+h3 { font-size: text(xlarge); }
+h4 { font-size: text(large); }
+h5 { font-size: text(medium); }
+
+h3, 
+h4 { color: $dark-teal; }
+
+header { 
+  margin-top: 16px;
+  margin-bottom: 22px;
+}
+
+nav {
+  // display: flex;
+  background: #18c5c3;
+  z-index: z(overlay);
+  position: fixed;
+  height: 100vh;
+  @extend %center;
+  @extend %center-whole;
+
+  li { padding: 0 3%;  }
+
+  a {
+		text-decoration: none;
+    color:  $white;
+    
+    font: {
+      size: text(medium);
+      family: text(normal);
+      weight: text(heavy);
+    }
+
+    &:hover { color: #000; }
+  }
+}
+
+p {
+  color: $dark-grey;
+  line-height: 1.5;
+  max-width: 700px;
+  font-size: text(small);
+  margin-bottom: 2rem;
+}
+
+section {
+ @extend %center-whole;
+ padding-bottom: 32px;
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+ul {
+  text-decoration: none;
+  list-style: none;
+}
+
+
+
+/************************* CLASSES **************************/
+.banner {
+  position: absolute;
+  font-size: text(small);
+  color: $white;
+}
+
+.btn-default,
+.btn-default:link,
+.btn-default:visited,
+.btn-default:active,
+.btn-default:focus,
+ {
+  border:2px solid $dark-teal;
+  border-radius: 5px;
+  padding: 1% 4%;
+  margin: 3% 0;
+  background: transparent;
+  text-transform: text(caps);
+  transition: background-color 0.1s ease-in, color 0.1s ease-in; 
+  outline: none;
+    font: {
+    weight: text(heavy);
+    size: text(small);
+    }
+}
+
+  .btn-default:hover,
+  .btn-default:active:hover   {
+    color: $white;
+    background: $dark-teal;
+    border-color: transparent;
+    @include shadow;
+  }
+
+.fa {
+  padding: 0 text(small);
+  color: $white;
+}
+
+.fa:visited,
+.fa:hover,
+.fa:active {
+  color: $pink;
+}
+
+.form-confirmation {
+  display: none;
+}
+
+.row { 
+  div { padding: 0; }
+}
+
+.social-icons {  
+  display: inline-flex;
+  position: relative;
+  bottom: 10%;
+  justify-content: center;
+}
+
+.twitter-feed i {
+  color: $dark-teal;
+}
+
+.vertical-align { @extend %center-whole; }
+
+
+/************************* IDs **************************/
+#about { background-color: $light-grey; }
+
+#about,
+#contact 
+{ min-height: 100vh; }
+
+#contact {
+  position: relative;
+  background: black;
+  color: $white;
+
+  ul { 
+    margin-top: 2%;
+    line-height: 1.5;
+    padding: 0; 
+    @extend %center;
+
+    a { font-size: text(small); }  
+    
+    a:hover { color: $dark-teal; }
+  }
+  
+  p,
+  a {  
+    color: $white;
+    margin-bottom: 0;
+  }
+
+  footer p { font-size: text(xsmall); }
+}
+
+#headshot {
+  width: 200px;
+  margin: 5%;
+  border-radius: 50%;
+}
+
+#home {
+  img {
+    position: absolute;
+    bottom: 5%;
+    animation: scroll-more;
+    animation-delay: 1s;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+  }  
+
+  color: $white;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-image: url('../assets/images/presentation-min.png');
+  min-height: 55vh;
+}
+
+#home span { @extend %span; }
+
+#projects {
+  padding: 0;
+    .vertical-align { margin: 0; }
+    h3 + p  { padding: 0;}
+    p {
+      padding: 0 10%;
+      margin: 0;
+    }
+}
+
+#mobile-menu {
+  position: fixed;
+  top: 2%;
+  left: 2%;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: transparent;
+  background: transparent;
+  z-index: z(nav-icon);
+  outline: none;
+}
+
+
+/************************* MEDIA QUERIES  *************************/
+@media screen and (min-width: screen(xs)) and (max-width: screen(lg)) {
+  h1 { font-size:lg-text(tablet); }
+  h2 { left: 25%; }
+  #overlay {
+    width: 100vw;
+  }
+}
+@media screen and (min-width:721px) {
+  #overlay {
+    width: 30vh;
+  }
+}
+@media screen and (min-width: screen(sm)) {
+  nav a { font-size: text(large); }
+}
+
+@media screen and (min-width: screen(md)) {
+  #mobile-menu { 
+    width: 70px;
+    height: 70px;
+  }  
+
+  nav { 
+    a { 
+      padding: 0 4%;
+    }
+  }
+  .flex-item-1 { order: 1;}
+
+  .flex-item-2 { order: 2;}
+}
+
+@media screen and (min-width: screen(lg)) {
+  h1 { font-size: lg-text(desktop); }
+  figure { width: 50%; }
+
+  #projects div { display: flex; }
+  #projects .vertical-align { width: 50%; }
+}

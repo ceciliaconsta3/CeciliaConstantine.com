@@ -317,7 +317,7 @@ ul {
 
 /************************* CLASSES **************************/
 .banner {
-  position: absolute;
+  text-align: center;
   font-size: 1rem;
   color: #f5f5f5;
 }
